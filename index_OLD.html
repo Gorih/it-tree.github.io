@@ -1,0 +1,821 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>it-tree studio</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.css">
+		<script>
+			$(document).ready(function(){
+			    $("div.menu, div.header").on("click","a", function (event) {
+			        //отменяем стандартную обработку нажатия по ссылке
+			        event.preventDefault();
+			 		//alert("hello");
+			        //забираем идентификатор бока с атрибута href
+			        var id  = $(this).attr('href'),
+			 
+			        //узнаем высоту от начала страницы до блока на который ссылается якорь
+			            top = $(id).offset().top;
+			       //анимируем переход на расстояние - top за 1500 мс
+
+			        $('body,html').animate({scrollTop: top}, 1500);
+			    });
+			});
+
+		</script>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: 'Roboto', sans-serif;
+				background: url(it-iree_fon.jpg) no-repeat fixed;
+				background-size: 100%;
+			}
+			div.menu {
+				background: rgba(0,51,51,0.9);
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 50px;
+				z-index: 10;
+			}
+			div.menu a.logo img {
+				height: 120px;
+				
+			}
+			div.menu a.sos {
+				margin: 0;
+				padding: 0;
+			}
+			div.menu a {
+				display: inline-block;
+				color: white;
+				text-decoration: none;
+				font-weight: lighter;
+				margin: 10px;
+				margin-top: 25px;
+
+			}
+			div.menu a.logo {
+				height: 120px;
+				padding: 0 5%;
+				float: left;
+				//margin-right: 30.5%;
+				margin-top: 0;
+				margin-left: 0;
+
+			}
+			a.fadeInLeft {
+				opacity: 0;
+				transform: translateX(-100px);
+				animation-duration: 1s;
+				animation-delay: .5s;
+			}
+			div.line {
+				width: 100%;
+				height: 2px;
+				background: #66CCCC;
+				transform: scale(0,1);
+				transition-duration: 1s;
+				transform-origin: left top;
+			}
+			a:hover div.line {
+				transform: scale(1,1);
+			}
+			div.menu a img {
+				height: 50px;
+				margin: 0;
+				margin-bottom: -20px;
+				padding: 0;
+				transition-duration: 1s;
+			}
+			a.sos:hover img {
+				background: #033;
+			}
+			div.fadeInRight {
+				display: inline-block;
+				float: right;
+				margin-right: 2.5%;
+				animation-duration: 1s;
+				animation-delay: 1s;
+			}
+			h2.fadeInRight {
+				animation-duration: 1s;
+				animation-delay: 2s;
+			}
+			p.fadeInRight {
+				animation-duration: 1s;
+				animation-delay: 2.5s;
+			}
+			div.header {
+				color: white;
+				padding-left: 50%;
+				padding-top: 15%;
+				padding-right: 10%;
+				text-shadow: 1px 1px 2px black, 0 0 1em black;
+				line-height: 1.5em;
+				height: 100%;
+			}
+			div.header h2  {
+				font-size: 3em;
+				margin-left: 0;
+				color: white;
+			}
+			div.portfolio {
+				background: #ccc;
+				padding: 3%;
+				overflow: hidden;
+			}
+			div.portfolio div.box {
+				width: 29.3%;
+				float: left;
+				margin: 2%;
+				overflow: hidden;
+				position: relative;
+			}
+			div.portfolio img {
+				width: 100%;
+				transition-duration: 1s;
+			}
+			div.portfolio a:hover img{
+				transform: scale(1.2);
+			}
+			div.portfolio div.box p {
+				position: absolute;
+				left: 0;
+				bottom: 5%;
+				background: rgba(0,204,204,.7);
+				color: white;
+				padding: 2% 5%;
+				transform: translateX(-100%);
+				transition-duration: 1.5s;
+				//transform-origin: left top;
+				width: 100%;
+			}
+			div.portfolio div.box:hover p {
+				transform: translateX(0);
+			}
+			div.portfolio strong {
+				//font-size: 1.5em;
+				text-transform: uppercase;
+				font-weight: lighter;
+			}
+			div.blue {
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: rgba(0,51,51,0);
+				width: 100%;
+				height: 100%;
+				transition-duration: 1.5s;
+			}
+			div.portfolio div.box:hover div.blue {
+				background: rgba(0,51,51,0.7);
+			}
+			div.pulse {
+				animation-duration: 1.5s;
+				animation-iteration-count: infinite;
+				animation-delay: 4s;
+				font-size: 2em;
+				background: rgba(0,51,51,0.8);
+				padding: 10px 15px;
+				border-radius: 50%;
+				position: absolute;
+				bottom: 5%;
+			}
+			div.pulse a {
+				text-decoration: none;
+				color: rgba(0,204,204,.7);
+			}
+			div.clients {
+				background: white;
+				padding: 3% 5%;
+				overflow: hidden;
+			}
+			div.clients div.circle {
+				float: left;
+				width: 25%;
+				text-align: center;
+				overflow: hidden;
+				margin-bottom: 30px;
+			}
+			div.clients div.circle img {
+				height: 200px;
+			}
+			div.clients div.circle bloquote {
+				//height: 230px;
+				margin: auto 15%;
+				display: block;
+				text-align: left;
+				font-style: italic;
+			}
+			div.clients div.circle p.author {
+				text-align: left;
+				margin: 0 auto;
+				padding-left: 15%;
+			}
+			div.clients div.circle:hover img {
+				//opacity: 1;
+				//background: black;
+			}
+			div.circle h3 {
+				text-transform: uppercase;
+				font-weight: lighter;
+				background: rgb(0,51,51);
+				color: silver;
+				font-size: 1em;
+				//background: rgb(0,204,204);
+				//background: red;
+				margin: 0 15%;
+				padding: 3%;
+			}
+			div.circle h4 {
+				text-transform: uppercase;
+				font-weight: bold;
+				color: rgb(0,51,51);
+				text-align: left;
+				//margin: 0 auto;
+				padding-left: 15%;
+				margin-bottom: 0;
+			}
+			h2 {
+				margin-left: 50%;
+				font-size: 3em;
+				color: rgb(0,51,51);
+				font-weight: lighter;
+			}
+			h2 div.line {
+				transform: scale(1,2);
+				width: 30px;
+				//height: 2px;
+			}
+			div.technologies {
+				overflow: hidden;
+				padding: 5%;
+				background: rgba(255,255,255,.8);
+			}
+			div.technologies h2 {
+				margin-top: 3%;
+				//color: white;
+			}
+
+			div.technologies div.circle {
+				width: 15%;
+				margin: 2% 5%;
+				//margin-right: 3%;
+				background: white;
+				//border-radius: 50%;
+				float: left;
+				overflow: hidden;
+			}
+			div.technologies div.circle img {
+				width: 100%;
+			}
+			div.about {
+				background: rgba(255,255,255,.8);
+				overflow: hidden;
+				padding: 3% 10%;
+
+			}
+			div.about span {
+				//color: grey;
+				color: #066;
+				font-size: 1.2em;
+			}
+			div.about li {
+				color: rgb(0,204,204);
+			}
+			div.about div.box {
+				width: 23%;
+				float: left;
+				text-align: center;
+				padding: 1% 5%;
+
+			}
+			div.about div.box img {
+				width: 50%;
+				background: rgba(0,51,51,1);
+				//border-radius: 50%;
+				border: 20px solid rgba(0,51,51,.9);
+			}
+			div.about div.box p {
+				color: rgb(0,51,51);
+				//font-weight: bold;
+			}
+			div.contacts {
+				background: silver;
+				padding-top: 100px;
+				//padding-left: 3%;
+				overflow: hidden;
+			}
+			div.contacts h3 {
+				color: #66CCCC;
+				font-weight: lighter;
+				font-size: 1em;
+			}
+			div.contacts div.left {
+				float: left;
+				margin-left: 5%;
+				margin-top: -85px;
+			}
+			div.contacts div.right {
+				margin-left: 50%;
+				margin-right: 5%;
+			}
+			div.contacts p {
+				line-height: 1.5em;
+			}
+			div.contacts span {
+				color: rgb(0,51,51);
+				font-weight: bold;
+			}
+			form {
+            padding: 40px;
+            //margin: 20px;
+            //border: 2px solid white;
+            display: block;
+            text-align: center;
+            padding-top: 10px;
+            background: rgba(0,51,51,.9);
+	        }
+	        form * {
+	            width: 250px;
+	            border: none;
+	            padding: 10px;
+	            margin-bottom: 15px;
+	        }
+	        form textarea {
+	            height: 100px;
+	        }
+	        button {
+	            width: 250px;
+	            height: 50px;
+	            //font-weight: lighter;
+	            display: inline-block;
+	            margin-bottom: 0;
+	            position: relative;
+	            border: 2px solid white;
+	            //color: rgb(0,51,51);
+	            overflow: hidden;
+	            background: rgba(255,255,255,1);
+	        }
+	        div.contacts button span {
+	        	position: absolute;
+	        	color: rgb(0,51,51);
+	        	left: -10px;
+	        	top: 10%;
+	        }
+	        button:hover div.dark {
+	            transform: skewX(45deg) scale(1, 1);
+	        }
+	        div.dark {
+	        	background: #66CCCC;
+	        	position: absolute;
+	        	left: 0;
+	        	top: 0;
+	        	width: 224px;
+	        	height: 26px;
+	        	transform: skewX(45deg) scale(0, 1);
+	        	transition-duration: 1s;
+	        }
+		</style>
+	</head>
+	<body>
+
+		<div class="menu" id="menu">
+			<a href="#top" class="logo animated fadeInLeft"><img src="logo_ittree.png"></a>
+			<div class="animated fadeInRight">
+				<a href="#portfolio">PORTFOLIO<div class="line"></div></a>
+				<a href="#about">WE CAN DO<div class="line"></div></a>
+				<a href="#clients">CLIENTS<div class="line"></div></a>
+				<a href="#technologies">TECHNOLOGIES<div class="line"></div></a>
+				<a href="#contacts">CONTACTS<div class="line"></div></a>
+		
+				<a href="#" class="sos"><img src="fb-logo.png"></a>
+				<a href="#" class="sos"><img src="vk-logo.png"></a>
+			</div>
+		</div>
+		<div class="header" id="top">
+			<h2 class="animated fadeInRight">СТВОРЮЄМО</h2>
+			<p class="animated fadeInRight">презентаційні сайти-візитки, корпоративні іміджеві сайти, <br>прибуткові інтернет-магазини, промосайти з WOW ефектом...<br> Надаємо послуги брендингу та інтернет-маркетингу....
+			</p>
+			<div class="animated pulse"><a href="#portfolio">v</a></div>
+		</div>
+		<div class="portfolio" id="portfolio">
+			<h2>PORTFOLIO
+				<div class="line"></div>
+			</h2>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/45768929/logotip-merezh-magazinv-krana-solodoschv" target="_blank">
+					<img src="logo_ks.jpg">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Країна Солодощів</strong>
+						<br>
+						логотип
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="http://country-sweets.com.ua/" target="_blank">
+					<img src="site_ks.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Країна Солодощів</strong>
+						<br>
+						корпоративний сайт
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43114835/eskzi-nternet-magazinu-avtozapchastin-avto-turist" target="_blank">
+					<img src="site_avto.png">
+					<div class="blue"></div>
+					<p>
+						<strong>Авто-Турист</strong>
+						<br>
+						дизайн інтернет-магазину
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="http://aviant.net.ua/uk" target="_blank">
+					<img src="site_aviant.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Aviant</strong>
+						<br>
+						корпоративний сайт
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43153971/tm-avant-kolekcja-kartonih-upakovok-dlja-grnok" target="_blank">
+					<img src="upakovka_aviant.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Aviant</strong>
+						<br>
+						дизайн колекції упаковок для грінок
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43218857/tm-avant-upakovka-dlja-grnok" target="_blank">
+					<img src="upakovka_aviant_2.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Aviant</strong>
+						<br>
+						дизайн упаковок для грінок
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43564767/logotip-ta-frmovij-stil-tm-kchkarvka" target="_blank">
+					<img src="logo_kichkarivka.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Кічкарівка</strong>
+						<br>
+						логотип, корпоративний стиль
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="http://kichkarivka.lutsk.ua/" target="_blank">
+					<img src="site_kichkarivka.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Кічкарівка</strong>
+						<br>
+						корпоративний сайт
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43119315/Cajt-tm-kchkarvka-httpkichkarivkalutskua" target="_blank">
+					<img src="photo_kichkarivka.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТМ Кічкарівка</strong>
+						<br>
+						фотосесія
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43562975/logotip-Logobook-tzov-nots-centr" target="_blank">
+					<img src="logo_notis.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТзОВ НОТІС-ЦЕНТР</strong>
+						<br>
+						логотип
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/45667069/dizajn-sajtu-nots-centr" target="_blank">
+					<img src="site_notis.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ТзОВ НОТІС-ЦЕНТР</strong>
+						<br>
+						дизайн корпоративного сайту
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43152949/logotip-dp-luckij-khp-2-upakovka-dlja-boroshna" target="_blank">
+					<img src="logo_khp.png">
+					<div class="blue"></div>
+					<p>
+						<strong>Державне підприємство КХП№2</strong>
+						<br>
+						логотип, упаковка для борошна
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43223293/upakovka-kakao-tm-KND" target="_blank">
+					<img src="upakovka_kakao.png">
+					<div class="blue"></div>
+					<p>
+						<strong>TM KDN</strong>
+						<br>
+						упаковка для какао
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/46111193/sufflinks-Handmade-jewelry" target="_blank">
+					<img src="handmade_jewelry.jpg">
+					<div class="blue"></div>
+					<p>
+						<strong>handmade jewelry</strong>
+						<br>
+						фотосесія
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="http://caffe-italiano.com.ua/" target="_blank">
+					<img src="site_kava.png">
+					<div class="blue"></div>
+					<p>
+						<strong>TM Foschi, TM Rio Rica</strong>
+						<br>
+						інтернет-магазин італійської кави
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/46111391/Hat-and-Co" target="_blank">
+					<img src="fashion.png">
+					<div class="blue"></div>
+					<p>
+						<strong>fashion</strong>
+						<br>
+						фотосесія
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="http://ukrtz.com.ua/" target="_blank">
+					<img src="v5.png">
+					<div class="blue"></div>
+					<p>
+						<strong>ООО Интер Запчасть</strong>
+						<br>
+						корпоративний сайт
+					</p>
+				</a>
+			</div>
+			<div class="box">
+				<a href="https://www.behance.net/gallery/43603425/Illustrations" target="_blank">
+					<img src="pic.jpg">
+					<div class="blue"></div>
+					<p>
+						<strong></strong>
+						<br>
+						ілюстрації
+					</p>
+				</a>
+			</div>
+		</div>
+		<div class="about" id="about">
+			<h2>WE CAN DO
+				<div class="line"></div>
+			</h2>
+			<div class="box">
+					<img src="logo_4.png">
+					<p>ЗРУЧНІ ТА ЕФЕКТИВНІ САЙТИ</p>
+				</div>
+				<div class="box">
+					<img src="logo_6.png">
+					<p>ІНДИВІДУАЛЬНІ РІШЕННЯ <br>ДЛЯ ВАШИХ ЗАДАЧ</p>
+				</div>
+				<div class="box">
+					<img src="logo_2.png">
+					<p>RESPONSIVE DESIGN<br>ВІДМОВОСТІЙКІ ПРОЕКТИ</p>
+				</div>
+				<div class="box">
+					<img src="logo_5.png">
+					<p>ЕЛЕГАНТНИЙ МІНІМАЛІСТИЧНИЙ ДИЗАЙН</p>
+				</div>
+				<div class="box">
+					<img src="logo_3.png">
+					<p>ПРОСТІ У КОРИСТУВАННІ ІНТЕРФЕЙСИ</p>
+				</div>
+				<div class="box">
+					<img src="logo_love.png">
+					<p>СТВОРЮЄМО<br> З ЛЮБОВ'Ю</p>
+				</div>
+			<p><span>Створюємо</span> презентаційні сайти-візитки, корпоративні іміджеві <span>сайти</span>,
+		        прибуткові інтернет-магазини, промосайти з WOW ефектом...
+		        Надаємо <span>послуги брендингу та інтернет-маркетингу.</span>...</p>
+
+		    <p> Кожен проект для нас є <span>індивідуальним</span>, тому ми не працюємо
+		        за шаблоном, а завжди <span>знаходимо нові та ефективні рішення.</span></p>
+
+		    <p><span>Комплексний підхід</span> у процесі роботи над вашим проектом
+		        дозволяє отримати <span>дійсно ефективний cайт</span>, здатний <span>вирішити</span>
+		        всі поставлені <span>задачі та цілі бізнесу</span> будь-якого напрямку
+		        та будь-якого масштабу.</p>
+
+		    <p>Крім цього <span>надаємо послуги</span>:</p>
+		    <ul>
+		        <li><span>дизайну;</span></li>
+		        <li><span>фотозйомки;</span></li>
+		        <li><span>розробки програмного забезпечення;</span></li>
+		        <li><span>автоматизації виробництва;</span></li>
+		        <li><span>навчання персоналу;</span></li>
+		        <li><span>встановлення сигналізацій, систем відеонагляду та безпеки;</span></li>
+		        <li><span>консультації у сфері IT</span></li>
+		    </ul>
+		    
+				
+		</div>
+		<div class="clients" id="clients">
+			<h2>CLIENTS
+				<div class="line"></div>
+			</h2>
+			<div class="circle">
+				<img src="logo_kichkarivka.png">
+				<h3>ТМ Кічкарівка</h3>
+				<p>виробництво і продаж<br>хлібобулочних виробів</p>
+			</div>
+			
+			<div class="circle">
+				<img src="logo_aviant.png">
+				<h3>ТМ Авіант</h3>
+				<p>виробництво і продаж<br>грінок для канапе</p>
+			</div>
+		
+			<div class="circle">
+				<img src="KS_logo_shaddow.png">
+				<h3>Країна Солодощів</h3>
+				<p>мережа магазинів<br>солодощів</p>
+			</div>
+			
+			<div class="circle">
+				<img src="logo_notic.png">
+				<h3>ТзОВ Нотіс-центр</h3>
+				<p>продаж та сервіс<br>кондитерського обладнання</p>
+			</div>
+		
+			<div class="circle">
+				<img src="logo_khp.png">
+				<h3>ДП КХП№2</h3>
+				<p>виробництво і продаж<br>борошна</p>
+			</div>
+			
+			<div class="circle">
+				<img src="logo_560x155px.png">
+				<h3>Авто-Турист</h3>
+				<p>мережа магазинів<br>автозапчастин</p>
+			</div>
+
+			<div class="circle">
+				<img src="logo_magistr.png">
+				<h3>Магістр</h3>
+				<p>спортивний клуб </p>
+			</div>
+
+			<div class="circle">
+				<img src="logo_knd.png">
+				<h3>ТМ KND</h3>
+				<p>виробництво какао <br>та бакалійних продуктів</p>
+			</div>
+			<div class="circle">
+				
+				<bloquote>«ТМ Кічкарівка має досвід успішної співпраці зі студією It-Tree у сферах дизайну, веб-розробки, інтернет-маркетингу та консалтингу з 2011 року.
+				Ми переконались, що даний колектив виконує роботу сумлінно та з високою якістю. 
+				Компанія ТзОВ «Західторгхліб» вважає за доцільне надати даний відгук та рекомендувати послуги студії It-Tree для створення веб проектів.»
+				</bloquote>
+				<h4>Віталій Бобир</h4>
+				<p class="author">керівник ТзОВ «Західторгхліб»</p>
+			</div>
+			<div class="circle">
+				
+				<bloquote>«Хочеться висловити щиру вдячність
+					студії It-Tree за довгий шлях,
+					який вона пройшла з нашою компанією, створюючи корпоративний стиль
+					та вебсайт. За відчуття наших бажань,
+					пунктуальність та відповідальність.»
+				</bloquote>
+				<h4>Володимир Алєйнік</h4>
+				<p class="author">власник ТМ Авіант</p>
+			</div>
+			<div class="circle">
+				
+				<bloquote>«Під час процесу створення вебсайту колектив студії It-Tree показав високий професійний рівень.<br> Вони уважні до побажань замовника, наполегливо працюють над деталями до повного завершення проекту. Поєднується легкість у спілкуванні з якостями відповідальних професіоналів.
+					<br>Дякую за вебсайт!»
+				</bloquote>
+				<h4>Ірина Хаслам</h4>
+				<p class="author">художник</p>
+			</div>
+			<div class="circle">
+				
+				<bloquote>«Студія It-Tree!<br>
+					Дякую за співпрацю і за сайт,
+					який ви зробили.<br>
+					Дуже гарний, цікавий і зручний.<br>
+					Бажаю успіхів!»
+				</bloquote>
+				<h4>Олександр Музичук</h4>
+				<p class="author">підприємець</p>
+			</div>
+		</div>
+		<div class="technologies" id="technologies">
+			<h2>TECHNOLOGIES
+				<div class="line"></div>
+			</h2>
+			<div class="circle">
+				<img src="logo_ps.jpg">
+			</div>
+			<div class="circle">
+				<img src="logo_ai.jpg">
+			</div>
+			<div class="circle">
+				<img src="HTML5_Logo_512.png">
+			</div>
+			<div class="circle">
+				<img src="preview-css3logo.png">
+			</div>
+			<div class="circle">
+				<img src="js-logo.png">
+			</div>
+			<div class="circle">
+				<img src="logo_jq.png">
+			</div>
+			<div class="circle">
+				<img src="php-logo.png">
+			</div>
+			<!--<div class="circle">
+				<img src="wordpress-logo-notext-rgb.png">
+			</div>-->
+			<div class="circle">
+				<img src="drupal_logo.jpg">
+			</div>
+		</div>
+		<div class="contacts" id="contacts">
+			<h2>CONTACTS
+				<div class="line"></div>
+			</h2>
+			<div class="left">
+				<form>
+	                <h3>ОТРИМАТИ БЕЗКОШТОВНУ КОНСУЛЬТАЦІЮ</h3>
+	                    <input type="text" value="ваше ім'я"><br>
+	                    <input type="text" value="номер телефону"><br>
+	                    <input type="text" value="e-mail"><br>
+	                    <textarea>введіть текст повідомлення</textarea><br>
+	                    <button><div class="dark"></div><span>ВІДПРАВИТИ</span></button>
+	            </form>
+     	    </div>
+			<div class="right">
+				<p>
+	                Якщо у вас є необхідність у логотипі, фірмовому стилі,
+	                упаковці, сайті, програмному забезпеченні
+	                або консультації з питань ІТ,<br>
+	                напишіть нам про свій проект,
+	                ми зробимо його гарним, функціональним та ефективним.
+            	</p>
+            	<p>
+            		Зателефонуйте нам, або напишіть, якщо вам потрібно заробляти з допомогою свого сайту якомога швидше.<br>
+            		Готові працювати над вашим проектом уже сьогодні!
+            	</p>
+            	<p><span>
+            		(050) 378-51-77<br>
+                	(050) 136-02-87<br>
+	                it.tree.studio@gmail.com<br>
+	                www.it-tree.com.ua
+	            </span>
+            	</p>
+       		</div>
+            
+		</div>
+	</body>
+</html>
